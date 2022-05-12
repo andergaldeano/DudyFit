@@ -1,0 +1,32 @@
+.content {
+    padding: 30px;
+    border: 1px solid rgba(0,0,0,.125);
+}
+
+.nav-item {
+    cursor: pointer;
+}
+
+.nav-item .active {
+    cursor: default;
+}
+
+.back-btn-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.back-btn-box button {
+    margin-right: 20px;
+}
+
+@media screen and (max-width: 700px){
+    .back-btn-box {
+        justify-content: center;
+    }
+    .back-btn-box button {
+        margin-right: 0px;
+    }
+}

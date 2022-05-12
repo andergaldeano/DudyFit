@@ -1,0 +1,69 @@
+
+<h1>Pantalla de configuración</h1>
+
+<section>
+    <form [formGroup]="addTrainerForm" (ngSubmit)="createTrainer()" class="trainer-form">
+        
+        <div>
+            <label for="name">Nombre: </label>
+            <input id="name" type="text" formControlName="name" ngModel required>
+        </div>
+       
+      
+        <div>
+            <label for="reputation">Valoración: </label>
+            <input id="reputation" step="0.01" type="number" formControlName="reputation" min="0" max="5" ngModel required>    
+        </div>
+     
+        <div>
+            <label for="maxStudentNumber">Máximo número de clientes: </label>
+            <input id="maxStudentNumber" type="number" formControlName="maxStudentNumber" min="0" max="10" ngModel required>    
+        </div>
+    
+        <button type="submit" class="btn btn-primary" [disabled]="addTrainerForm.invalid">Añadir</button>
+    </form>
+
+    <!-- Se podria ayudar al usuario mostrando mensajes de cuando se le pueden dar a los botones -->
+    <div class="main-btn-box">
+        <button type="button" class="btn btn-light" (click)="popup = true" >Ver tabla de clientes</button>
+        <button type="button" class="btn btn-primary" (click)="calculateAssignments()" [disabled]="trainersList.length < 1">Calcular resultados</button>    
+    </div>
+</section>
+
+
+
+
+<div class="trainers-list-box">
+    <div class="card" *ngFor="let trainer of trainersList, let i = index">
+        <div  class="card-header">
+            <div>
+                Entrenador {{i + 1}}
+            </div>
+            <div>
+                <button type="button" class="btn btn-light" (click)="editTrainer(i)">Editar</button>
+                <button type="button" class="btn btn-light" (click)="deleteTrainer(i)">Borrar</button>    
+            </div>
+        </div>
+        <div class="card-body">
+            <p>Nombre: {{trainer.name}}</p>
+            <p>Valoración: {{trainer.reputation}}</p>
+            <p>Máximo número de clientes: {{trainer.maxStudentNumber}}</p>
+        </div>
+    </div>
+</div>
+
+
+ 
+<div class="overlay" *ngIf="popup">
+    <div class="popup">
+        <h2>Valoración clientes</h2>
+        <a class="close" (click)="popup = false">&times;</a>
+        <div class="content">
+            <ul *ngFor="let client of clientList, let i = index">
+                <li>
+                    {{client.name}} valora con un {{client.relevance}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

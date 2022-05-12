@@ -1,0 +1,38 @@
+<div class="trainers-list-box" *ngIf="trainersList">
+    <div class="card" *ngFor="let trainer of trainersList, let i = index">
+        <div  class="card-header">
+            <div class="trainer-name-photo">
+                <img src="https://electronicssoftware.net/wp-content/uploads/user.png">
+                <p> Entrenador {{trainer.name}} </p>
+            </div>
+            <!-- deberia ser un icono -->
+            <div class="info-icon">
+                <div class="info">
+                    Valoración : {{trainer.reputation}} 
+                    <br>
+                    Max clientes: {{trainer.maxStudentNumber}}
+                </div>
+                <img src="https://cdn.pixabay.com/photo/2016/03/31/19/13/information-1294813_960_720.png">
+            </div>
+        </div>
+        <div *ngIf="trainer.pupils.length > 0">
+            <div class="card-body">
+                <p>Clientes asignados</p>
+                <ul>
+                    <li *ngFor="let pupil of trainer.pupils, let j = index">
+                        Cliente " {{pupil.name}} "
+                    </li>
+                </ul>
+            </div>
+            <div class="card-header">
+                <p> {{trainer.pupils.length }} clientes asignados</p>
+            </div>
+        </div>
+    
+
+        <div class="card-body" *ngIf="trainer.pupils.length < 1" >
+            <p>No tiene clientes asignados</p>
+        </div>
+        
+    </div>
+</div>

@@ -1,0 +1,76 @@
+.trainers-list-box,
+.card-header,
+.trainer-name-photo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.trainers-list-box {
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 30%;
+    margin: 10px;
+}
+
+.card-header {
+    justify-content: space-between;
+}
+
+.trainer-name-photo {
+    justify-content: flex-start;
+}
+
+.trainer-name-photo p {
+    margin: 0 !important;
+    padding-left: 5px;
+}
+.card-header img {
+    height: 40px;
+    width: 40px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    background-size: 100% auto;
+}
+
+.info-icon img {
+    height: 30px;
+    width: 30px;
+    background-position: 50%;
+    border-radius: 50%;
+    background-size: 100% auto;
+    position:relative;
+}
+
+.info-icon .info {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.5);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#50000000,endColorstr=#50000000);
+    width: 300px;
+    color: #FFF;
+    padding: 10px;
+}
+
+.info-icon:hover .info {
+    display: block;
+}
+  
+@media screen and (max-width: 768px){
+  
+    .card {
+        width: 100%;
+    }
+}
+  
+@media (min-width: 768px) and (max-width: 992px){
+  
+    .card {
+        width: 40%;
+    }
+}
